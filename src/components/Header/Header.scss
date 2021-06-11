@@ -1,0 +1,42 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e44232;
+}
+
+.header-content-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+
+.logo__img {
+    width: 70%;
+    cursor: pointer;
+}
+
+.header-nav {
+    width: 15%;
+}
+
+.header-nav__ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-nav__button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.header-nav__icon {
+    font-size: 1.2rem;
+    color: #fff;
+}
