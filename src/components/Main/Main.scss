@@ -1,3 +1,17 @@
+@use "../../styles/mixins";
+
 .main {
-    width: 70%;    
+    width: 70%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    @include mixins.for-phone-only {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
+
+

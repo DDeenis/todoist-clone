@@ -1,0 +1,14 @@
+@use "../../styles/mixins";
+
+.main-content {
+    background: var(--color-grey-01);
+    height: 90vh;
+    width: 70%;
+    margin: 0 30px;
+    box-shadow: var(--shadow-sm);
+
+    @include mixins.for-phone-only {
+        width: 100%;
+        margin: 0;
+    }
+}
