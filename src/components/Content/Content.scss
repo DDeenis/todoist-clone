@@ -4,7 +4,7 @@
     background: var(--color-grey-01);
     height: 90vh;
     width: 70%;
-    margin: 0 30px;
+    margin: 0 1.5em;
     box-shadow: var(--shadow-sm);
 
     @include mixins.for-phone-only {
