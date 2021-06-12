@@ -12,7 +12,7 @@ const Header = (): JSX.Element => {
                 <div className='logo'>
                     <img src={logo} className='logo__img' alt='Todoist logo' />
                 </div>
-                <div className='header-nav'>
+                <nav className='header-nav'>
                     <ul className='header-nav__ul'>
                         <li className='header-nav__li'>
                             <button className='header-nav__button'>
@@ -29,7 +29,7 @@ const Header = (): JSX.Element => {
                             </button>
                         </li>
                     </ul>
-                </div>
+                </nav>
             </div>
         </header>
     );
