@@ -7,7 +7,9 @@ const App = (): JSX.Element => {
   return (
     <div className="App">
       <Header />
-      <Main />
+      <div className='app-main'>
+        <Main />
+      </div>
     </div>
   );
 }
