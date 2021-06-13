@@ -1,0 +1,56 @@
+.add-task-area-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: max-content;
+    margin: 20px 0;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background-color: var(--color-grey-03);
+
+    & > * {
+        margin-bottom: 10px;
+    }
+}
+
+.add-task-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.add-task__label {
+    font-size: .9rem;
+}
+
+.add-task__input {
+    resize: none;
+    border: 0;
+    border-radius: 5px;
+    width: 25rem;
+    height: 5rem;
+}
+
+.add-task-checkbox-wrapper {
+    width: 26rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-task__button {
+    background: var(--color-red-04);
+    color: #fff;
+    padding: 7px 20px;
+    border: 0;
+    border-radius: 17px;
+    cursor: pointer;
+    transition: background .2s ease;
+    outline: none;
+
+    &:hover {
+        background: var(--color-red-06);
+    }
+}

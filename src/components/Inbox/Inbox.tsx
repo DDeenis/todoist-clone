@@ -12,7 +12,7 @@ const Inbox = (): JSX.Element => {
     const tasksFromState = useAppSelector()(state => state.tasks.tasks);
     const dispatch = useAppDispatch();
 
-    // remove after tests
+    // TODO: remove after tests
     useEffect(() => {
         const tasksMock: TaskType[] = [
             { id: v4(), title: 'Hello', done: false },

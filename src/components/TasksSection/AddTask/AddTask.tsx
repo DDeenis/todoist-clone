@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import { TaskReducerAction, TaskType } from '../../../redux/types';
+import { TaskType } from '../../../redux/types';
 import TaskCheckbox from '../../TaskCheckbox/TaskCheckbox';
 import { v4 as uuid } from 'uuid';
 import './AddTask.scss';
 
 interface AddTaskProps {
-    addTask: (task: TaskType) => TaskReducerAction
+    addTask: (task: TaskType) => void
 }
 
 const AddTask = ({ addTask }: AddTaskProps): JSX.Element => {
@@ -14,16 +14,16 @@ const AddTask = ({ addTask }: AddTaskProps): JSX.Element => {
     const [isChecked, setIsChecked] = useState(false);
 
     return (
-        <div className='add-task-wrapper'>
+        <div className='add-task-area-wrapper'>
             <div className='add-task-input-wrapper'>
-                <label htmlFor='add-task'>Task title</label>
-                <input id='add-task' autoFocus={true} type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
+                <label className='add-task__label' htmlFor='add-task__label'>Task title</label>
+                <textarea className='add-task__input' id='add-task' autoFocus={true} value={title} onChange={(e) => setTitle(e.target.value)} />
             </div>
             <div className='add-task-checkbox-wrapper'>
-                <label htmlFor='task-done'>Done</label>
+                <label className='add-task__label' htmlFor='task-done'>Done</label>
                 <TaskCheckbox id='task-done' checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
             </div>
-            <button className='add-task__button' onClick={() => addTask({ id: uuid(), title, done: isChecked })}>Create</button>
+            <button className='add-task__button' onClick={() => addTask({ id: uuid(), title: title.trim(), done: isChecked })}>Create</button>
         </div>
     );
 }

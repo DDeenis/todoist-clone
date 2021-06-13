@@ -17,7 +17,12 @@ const TasksSection = ({ title, children }: TasksSectionProps): JSX.Element => {
     const [isHover, setIsHover] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     
-    const addTask = (task: TaskType) => dispatch(addTaskAC(task));
+    const addTask = (task: TaskType) => {
+        if (task.title.length > 0 && task.title.replace(/\s/g, '').length) {
+            dispatch(addTaskAC(task))
+            setIsEditing(false);
+        }
+    }
 
     return (
         <section className='tasks-section'>
