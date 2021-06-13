@@ -50,6 +50,12 @@
     }
 }
 
+.add-task-buttons {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .add-task__button {
     background: var(--color-red-04);
     color: #fff;
@@ -62,5 +68,17 @@
 
     &:hover {
         background: var(--color-red-06);
+    }
+}
+
+.add-task__outlined {
+    background: transparent;
+    color: var(--color-red-04);
+    border: 1px solid var(--color-red-04);
+
+    &:hover {
+        background: var(--color-grey-04);
+        color: var(--color-red-06);
+        border-color: var(--color-red-06);
     }
 }

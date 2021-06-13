@@ -20,9 +20,10 @@ const TasksSection = ({ title, children }: TasksSectionProps): JSX.Element => {
     const addTask = (task: { title: string, done: boolean }) => {
         if (task.title.length > 0 && task.title.replace(/\s/g, '').length) {
             dispatch(addTaskAC({ id: uuid(), ...task }))
-            setIsEditing(false);
         }
     }
+
+    const canselAddTask = (): void => setIsEditing(false);
 
     return (
         <section className='tasks-section'>
@@ -37,7 +38,7 @@ const TasksSection = ({ title, children }: TasksSectionProps): JSX.Element => {
             </ul>
             {
                 isEditing &&
-                <EditTask callback={addTask} />
+                <EditTask confirmCallback={addTask} cancelCallback={canselAddTask} />
             }
             <div className='add-task-wrapper' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} onClick={() => setIsEditing(true)}>
                 <span className='add-task-wrapper__button'>
