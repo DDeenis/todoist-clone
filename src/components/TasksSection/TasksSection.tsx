@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { FaPlus, FaPlusCircle } from "react-icons/fa";
+import { FaPlus, FaPlusCircle, FaEllipsisH } from "react-icons/fa";
 import './TasksSection.scss';
 
 interface TasksSectionProps {
@@ -13,7 +13,12 @@ const TasksSection = ({ title, children }: TasksSectionProps): JSX.Element => {
 
     return (
         <section className='tasks-section'>
-            <h2 className='tasks-section__header'>{title}</h2>
+            <div className='task-section-header'>
+                <h2 className='tasks-section-header__header'>{title}</h2>
+                <span className='task-section-header__options'>
+                    <FaEllipsisH />
+                </span>
+            </div>
             <ul className='tasks-section-tasks'>
                 {children}
             </ul>

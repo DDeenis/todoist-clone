@@ -1,6 +1,6 @@
 .task {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: flex-start;
     overflow: hidden;
@@ -24,6 +24,11 @@
 
     &:checked {
         background-color: var(--color-red-04);
+        background-image: url('../../assets/images/check.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        // background-size: 80%;
+        background-size: contain;
     }
 }
 

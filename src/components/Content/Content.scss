@@ -6,7 +6,7 @@
     width: 80%;
     margin: 0 1.5em;
     box-shadow: var(--shadow-sm);
-    padding: 10px;
+    padding: 20px 30px;
     box-sizing: border-box;
 
     @include mixins.for-tablet-landscape-up {

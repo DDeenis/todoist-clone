@@ -1,9 +1,22 @@
 .tasks-section {
-
+    width: 100%;
 }
 
-.tasks-section__header {
+.task-section-header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.tasks-section-header__header {
+    font-size: 2rem;
+}
+
+.task-section-header__options {
+    font-size: 1.2rem;
+    color: var(--color-grey-05);
+    cursor: pointer;
 }
 
 .tasks-section-tasks {
