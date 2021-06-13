@@ -1,11 +1,18 @@
 @use "../../styles/mixins";
 
 .main-content {
-    background: var(--color-grey-01);
+    background: #fff;
     height: 90vh;
-    width: 70%;
+    width: 80%;
     margin: 0 1.5em;
     box-shadow: var(--shadow-sm);
+    padding: 10px;
+    box-sizing: border-box;
+
+    @include mixins.for-tablet-landscape-up {
+        width: 70%;
+        margin: 0;
+    }
 
     @include mixins.for-phone-only {
         width: 100%;

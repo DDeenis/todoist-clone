@@ -25,10 +25,10 @@
 .sidebar-nav-entry {
     display: flex;
     cursor: pointer;
-}
 
-.sidebar-nav-entry > a {
-    text-decoration: none;
+    & > a {
+        text-decoration: none;
+    }
 }
 
 .sidebar-nav-entry__icon {
