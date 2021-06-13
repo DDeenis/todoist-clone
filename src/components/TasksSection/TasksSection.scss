@@ -1,0 +1,40 @@
+.tasks-section {
+
+}
+
+.tasks-section__header {
+
+}
+
+.tasks-section-tasks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.add-task-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1em 0;
+    width: max-content;
+    cursor: pointer;
+
+    &:hover {
+        & > span {
+            color: var(--color-red-03);
+        }
+    }
+}
+
+.add-task-wrapper__button {
+    margin-right: 1em;
+    font-size: 1em;
+    color: var(--color-red-03);
+}
+
+.add-task-wrapper__span {
+    color: grey;
+    font-size: 14px;
+    user-select: none;
+}

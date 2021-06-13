@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Inbox from '../Inbox/Inbox';
 import './Content.scss';
 
@@ -9,6 +9,9 @@ const Content = (): JSX.Element => {
             <Switch>
                 <Route path='/inbox'>
                     <Inbox />
+                </Route>
+                <Route exact path='/'>
+                    <Redirect to='/inbox' />
                 </Route>
             </Switch>
         </div>
