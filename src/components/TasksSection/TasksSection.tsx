@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { FaPlus, FaPlusCircle, FaEllipsisH } from "react-icons/fa";
 import { useAppDispatch } from '../../redux/redux-hooks';
 import { addTaskAC } from '../../redux/tasksReducer';
-import { TaskType } from '../../redux/types';
-import AddTask from './AddTask/AddTask';
+import { v4 as uuid } from 'uuid';
+import EditTask from './EditTask/EditTask';
 import './TasksSection.scss';
 
 interface TasksSectionProps {
@@ -17,9 +17,9 @@ const TasksSection = ({ title, children }: TasksSectionProps): JSX.Element => {
     const [isHover, setIsHover] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     
-    const addTask = (task: TaskType) => {
+    const addTask = (task: { title: string, done: boolean }) => {
         if (task.title.length > 0 && task.title.replace(/\s/g, '').length) {
-            dispatch(addTaskAC(task))
+            dispatch(addTaskAC({ id: uuid(), ...task }))
             setIsEditing(false);
         }
     }
@@ -37,7 +37,7 @@ const TasksSection = ({ title, children }: TasksSectionProps): JSX.Element => {
             </ul>
             {
                 isEditing &&
-                <AddTask addTask={addTask} />
+                <EditTask callback={addTask} />
             }
             <div className='add-task-wrapper' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} onClick={() => setIsEditing(true)}>
                 <span className='add-task-wrapper__button'>
