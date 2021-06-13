@@ -1,3 +1,5 @@
+@use '../../../styles/mixins';
+
 .add-task-area-wrapper {
     display: flex;
     flex-direction: column;
@@ -31,6 +33,10 @@
     border-radius: 5px;
     width: 25rem;
     height: 5rem;
+
+    @include mixins.for-phone-only {
+        width: 18rem;
+    }
 }
 
 .add-task-checkbox-wrapper {
@@ -38,6 +44,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include mixins.for-phone-only {
+        width: 19rem;
+    }
 }
 
 .add-task__button {
