@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
+import { TaskType } from '../../redux/types';
+import TaskCheckbox from '../TaskCheckbox/TaskCheckbox';
 import './Task.scss';
 
 interface TaskProps {
-    task: { id: number, title: string, done: boolean }
+    task: TaskType
 }
 
 const Task = ({ task }: TaskProps): JSX.Element => {
@@ -11,7 +13,7 @@ const Task = ({ task }: TaskProps): JSX.Element => {
 
     return (
         <li className='task'>
-            <input className='task__checkbox' type='checkbox' checked={isChecked} onChange={() => setIsChecked(!isChecked)} />
+            <TaskCheckbox checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
             <div className='task-content'>
                 <span className={isChecked ? 'task-content__title task-content__title_checked' : 'task-content__title' }>{task.title}</span>
             </div>
