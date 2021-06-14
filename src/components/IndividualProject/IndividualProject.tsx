@@ -7,7 +7,7 @@ import './IndividualProject.scss';
 
 interface IndividualProjectProps {
     name: string,
-    tasks: TaskType[]
+    tasks?: TaskType[]
 }
 
 function tasksReducer(state: TasksReducerState, action: TaskReducerAction): TasksReducerState {

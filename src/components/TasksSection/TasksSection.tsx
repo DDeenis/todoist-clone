@@ -6,6 +6,7 @@ import EditTask from './EditTask/EditTask';
 import './TasksSection.scss';
 import { TaskReducerAction } from '../../redux/types';
 import { addTaskAC } from '../IndividualProject/IndividualProject';
+import { isNullOrWhiteSpace } from '../../utils/utils';
 
 interface TasksSectionProps {
     title: string,
@@ -18,7 +19,7 @@ const TasksSection = ({ title, dispatch, children }: TasksSectionProps): JSX.Ele
     const [isEditing, setIsEditing] = useState(false);
     
     const addTask = (task: { title: string, done: boolean }) => {
-        if (task.title.length > 0 && task.title.replace(/\s/g, '').length) {
+        if (!isNullOrWhiteSpace(task.title)) {
             dispatch(addTaskAC({ id: uuid(), ...task }))
         }
     }

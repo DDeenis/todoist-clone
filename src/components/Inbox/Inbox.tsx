@@ -4,7 +4,7 @@ import './Inbox.scss'
 
 const Inbox = (): JSX.Element => {
     return (
-        <IndividualProject name='Inbox' tasks={[]} />
+        <IndividualProject name='Inbox' />
     );
 }
 

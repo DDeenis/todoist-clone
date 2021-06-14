@@ -2,6 +2,7 @@ import React, { RefObject } from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
 import { TaskType } from '../../../redux/types';
+import { isNullOrWhiteSpace } from '../../../utils/utils';
 import TaskCheckbox from '../../TaskCheckbox/TaskCheckbox';
 import './EditTask.scss';
 
@@ -17,8 +18,10 @@ const EditTask = ({ confirmCallback, cancelCallback, task }: EditTaskProps): JSX
     const titleRef = useRef() as RefObject<HTMLTextAreaElement>;
 
     const confirm = (): void => {
-        confirmCallback({ title: title.trim(), done: isChecked });
-        setTitle('');
+        if (!isNullOrWhiteSpace(title)) {
+            confirmCallback({ title: title.trim(), done: isChecked });
+            setTitle('');
+        }
         titleRef.current?.focus();
     };
 
