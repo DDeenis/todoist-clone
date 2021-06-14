@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import { useState } from 'react';
 import { FaPlus, FaPlusCircle, FaEllipsisH } from "react-icons/fa";
-import { useAppDispatch } from '../../redux/redux-hooks';
-import { addTaskAC } from '../../redux/tasksReducer';
 import { v4 as uuid } from 'uuid';
 import EditTask from './EditTask/EditTask';
 import './TasksSection.scss';
+import { TaskReducerAction } from '../../redux/types';
+import { addTaskAC } from '../IndividualProject/IndividualProject';
 
 interface TasksSectionProps {
     title: string,
+    dispatch: Dispatch<TaskReducerAction>,
     children: JSX.Element[] | JSX.Element
 }
 
-const TasksSection = ({ title, children }: TasksSectionProps): JSX.Element => {
-    const dispatch = useAppDispatch();
+const TasksSection = ({ title, dispatch, children }: TasksSectionProps): JSX.Element => {
     const [isHover, setIsHover] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     

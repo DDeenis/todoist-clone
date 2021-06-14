@@ -15,7 +15,7 @@ body {
 }
 
 // copypasted from todoist website
-// change to scss variables later
+// change to sass variables later
 :root {
     --color-black-08: rgba(0,0,0,0.88);
     --color-black-07: rgba(0,0,0,0.66);
@@ -75,12 +75,6 @@ body {
     --color-tw-secondary-light: #f6f9f8;
     --color-tw-cta-active: #2a61cf;
     --color-tw-cta-hover: #3879fa;
-    --color-dst-primary: #438952;
-    --color-dst-secondary-dark: #f3ecd1;
-    --color-dst-secondary-light: #fefbf1;
-    --color-dst-cta-active: #4f7d54;
-    --color-dst-cta-hover: #539359;
-    --color-perceptional-green: #6b8767;
     --color-perceptional-yellow: #ffc93e;
     --color-perceptional-pink: #ffada4;
     --easing-smooth: cubic-bezier(0.2,0.8,0.2,1);

@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import { useState } from 'react';
-import { TaskType } from '../../redux/types';
+import { TaskReducerAction, TaskType } from '../../redux/types';
 import TaskCheckbox from '../TaskCheckbox/TaskCheckbox';
 import { FaTrash, FaPencilAlt } from "react-icons/fa";
 import './Task.scss';
-import { useAppDispatch } from '../../redux/redux-hooks';
-import { removeTaskAC, updateTaskAC } from '../../redux/tasksReducer';
 import EditTask from '../TasksSection/EditTask/EditTask';
+import { removeTaskAC, updateTaskAC } from '../IndividualProject/IndividualProject';
 
 interface TaskProps {
-    task: TaskType
+    task: TaskType,
+    dispatch: Dispatch<TaskReducerAction>
 }
 
 interface TaskContent {
@@ -17,9 +17,8 @@ interface TaskContent {
     done: boolean
 }
 
-const Task = ({ task }: TaskProps): JSX.Element => {
+const Task = ({ task, dispatch }: TaskProps): JSX.Element => {
     const [isEditing, setIsEditing] = useState(false);
-    const dispatch = useAppDispatch();
 
     const onCheck = (isChecked: boolean): void => {
         dispatch(updateTaskAC({ ...task, done: isChecked }))
