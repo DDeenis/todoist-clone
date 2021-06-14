@@ -1,3 +1,7 @@
+.task-wrapper {
+    
+}
+
 .task {
     display: flex;
     flex-flow: row nowrap;
@@ -22,4 +26,17 @@
     text-decoration: line-through;
     color: #d1d9d9;
     text-decoration-color: auto;
+}
+
+.task-operation__icon {
+    color: var(--color-grey-07);
+    cursor: pointer;
+}
+
+.delete-task {
+    margin-left: 8px;
+}
+
+.edit-task {
+
 }

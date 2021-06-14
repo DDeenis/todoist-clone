@@ -12,8 +12,8 @@ interface EditTaskProps {
 }
 
 const EditTask = ({ confirmCallback, cancelCallback, task }: EditTaskProps): JSX.Element => {
-    const [title, setTitle] = useState(task?.title || '');
-    const [isChecked, setIsChecked] = useState(task?.done || false);
+    const [title, setTitle] = useState(task?.title ?? '');    
+    const [isChecked, setIsChecked] = useState(task?.done ?? false);
     const titleRef = useRef() as RefObject<HTMLTextAreaElement>;
 
     const confirm = (): void => {
