@@ -39,7 +39,7 @@ const TasksSection = ({ title, dispatch, children }: TasksSectionProps): JSX.Ele
             </ul>
             {
                 isEditing &&
-                <EditTask confirmCallback={addTask} cancelCallback={canselAddTask} />
+                <EditTask onConfirm={addTask} onCancel={canselAddTask} />
             }
             <div className='add-task-wrapper' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} onClick={() => setIsEditing(true)}>
                 <span className='add-task-wrapper__button'>

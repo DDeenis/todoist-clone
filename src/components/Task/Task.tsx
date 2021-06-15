@@ -47,7 +47,7 @@ const Task = ({ task, dispatch }: TaskProps): JSX.Element => {
             </div>
             {
                 isEditing &&
-                <EditTask confirmCallback={(newTask: TaskContent) => saveTask(newTask)} cancelCallback={(): void => setIsEditing(false)} task={task} />
+                <EditTask onConfirm={(newTask: TaskContent) => saveTask(newTask)} onCancel={(): void => setIsEditing(false)} task={task} />
             }
         </li>
     );

@@ -7,19 +7,19 @@ import TaskCheckbox from '../../TaskCheckbox/TaskCheckbox';
 import './EditTask.scss';
 
 interface EditTaskProps {
-    confirmCallback: (task: { title: string, done: boolean }) => void,
-    cancelCallback: () => void,
+    onConfirm: (task: { title: string, done: boolean }) => void,
+    onCancel: () => void,
     task?: TaskType
 }
 
-const EditTask = ({ confirmCallback, cancelCallback, task }: EditTaskProps): JSX.Element => {
+const EditTask = ({ onConfirm, onCancel, task }: EditTaskProps): JSX.Element => {
     const [title, setTitle] = useState(task?.title ?? '');    
     const [isChecked, setIsChecked] = useState(task?.done ?? false);
     const titleRef = useRef() as RefObject<HTMLTextAreaElement>;
 
     const confirm = (): void => {
         if (!isNullOrWhiteSpace(title)) {
-            confirmCallback({ title: title.trim(), done: isChecked });
+            onConfirm({ title: title.trim(), done: isChecked });
             setTitle('');
         }
         titleRef.current?.focus();
@@ -37,7 +37,7 @@ const EditTask = ({ confirmCallback, cancelCallback, task }: EditTaskProps): JSX
             </div>
             <div className='add-task-buttons'>
                 <button className='add-task__button' onClick={() => confirm()}>Confirm</button>
-                <button className='add-task__button add-task__outlined' onClick={() => cancelCallback()}>Cancel</button>
+                <button className='add-task__button add-task__outlined' onClick={() => onCancel()}>Cancel</button>
             </div>
         </div>
     );
