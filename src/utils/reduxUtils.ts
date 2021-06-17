@@ -8,8 +8,7 @@ export const removeStateValue = <TState extends BaseReducerState<TValue>, TValue
 
 export const updateStateValue = <TState extends BaseReducerState<TValue>, TValue extends BaseReduxType>(state: TState, value: TValue, field: string): TState =>
     ({ ...state, tasks: state[field].map(t => t.id !== value.id ? t : value) });
-
-
+    
 export class ReduxStateUtils<TState extends BaseReducerState<TValue>, TValue extends BaseReduxType> {
     constructor(public readonly field: string) { }
     
