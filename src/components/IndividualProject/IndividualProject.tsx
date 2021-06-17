@@ -1,6 +1,7 @@
 import React from 'react';
 import { useReducer } from 'react';
 import { TaskReducerAction, TasksReducerState, TaskType } from '../../redux/types';
+import { ReduxStateUtils } from '../../utils/reduxUtils';
 import Task from '../Task/Task';
 import TasksSection from '../TasksSection/TasksSection';
 import './IndividualProject.scss';
@@ -10,25 +11,27 @@ interface IndividualProjectProps {
     tasks?: TaskType[]
 }
 
+const tasksUtils = new ReduxStateUtils<TasksReducerState, TaskType>('tasks');
+
 function tasksReducer(state: TasksReducerState, action: TaskReducerAction): TasksReducerState {
     switch (action.type) {
         case 'ADD_TASK':
-            return { ...state, tasks: [...state.tasks, action.payload.task] };
+            return tasksUtils.add(state, action.payload.value);
 
         case 'REMOVE_TASK':
-            return { ...state, tasks: state.tasks.filter(t => t.id !== action.payload.task.id) };
+            return tasksUtils.remove(state, action.payload.value);
 
         case 'UPDATE_TASK':
-            return { ...state, tasks: state.tasks.map(t => t.id !== action.payload.task.id ? t : action.payload.task) };
+            return tasksUtils.update(state, action.payload.value);
 
         default:
             return state;
     }
 }
 
-export const addTaskAC = (task: TaskType): TaskReducerAction => ({ type: 'ADD_TASK', payload: { task } });
-export const removeTaskAC = (task: TaskType): TaskReducerAction => ({ type: 'REMOVE_TASK', payload: { task } });
-export const updateTaskAC = (task: TaskType): TaskReducerAction => ({ type: 'UPDATE_TASK', payload: { task } });
+export const addTaskAC = (value: TaskType): TaskReducerAction => ({ type: 'ADD_TASK', payload: { value } });
+export const removeTaskAC = (value: TaskType): TaskReducerAction => ({ type: 'REMOVE_TASK', payload: { value } });
+export const updateTaskAC = (value: TaskType): TaskReducerAction => ({ type: 'UPDATE_TASK', payload: { value } });
 
 const IndividualProject = ({ name, tasks = [] }: IndividualProjectProps): JSX.Element => {
     const [tasksStore, dispatch] = useReducer(tasksReducer, { tasks });
