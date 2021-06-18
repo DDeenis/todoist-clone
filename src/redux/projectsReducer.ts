@@ -3,7 +3,13 @@ import { RootState } from "./store";
 import { ProjectsReducerAction, ProjectsReducerState, ProjectType } from "./types";
 
 const initialState: ProjectsReducerState = {
-    projects: []
+    projects: [
+        { id: '1', name: 'Test1', tasks: [] },
+        { id: '2', name: 'Test2', tasks: [] },
+        { id: '3', name: 'Test3', tasks: [] },
+        { id: '4', name: 'Test4', tasks: [] },
+        { id: '5', name: 'Test5', tasks: [] },
+    ]
 };
 
 const projectsUtils = new ReduxStateUtils<ProjectsReducerState, ProjectType>('projects');

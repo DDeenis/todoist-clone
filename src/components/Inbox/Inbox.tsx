@@ -4,7 +4,10 @@ import './Inbox.scss'
 
 const Inbox = (): JSX.Element => {
     return (
-        <IndividualProject name='Inbox' />
+        <>
+            <IndividualProject name='Inbox' />
+            <IndividualProject name='Test' />
+        </>
     );
 }
 
