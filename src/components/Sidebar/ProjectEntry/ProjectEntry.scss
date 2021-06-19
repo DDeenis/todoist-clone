@@ -1,0 +1,23 @@
+.edit-project {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-project__icon {
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+
+.sidebar-nav-entry__wrapper {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    & > a {
+        text-decoration: none;
+    }
+}
+
+.edit-project__input {
+    width: 7em;
+}

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import { FaInbox, FaCalendar, FaCalendarWeek, FaChevronDown, FaChevronRight, FaBullhorn } from "react-icons/fa";
+import { FaInbox, FaCalendar, FaCalendarWeek, FaChevronDown, FaChevronRight } from "react-icons/fa";
 import { projectNamesSelector } from '../../redux/projectsReducer';
 import { useAppSelector } from '../../redux/redux-hooks';
+import ProjectsList from './ProjectsList/ProjectsList';
 import './Sidebar.scss';
 import SidebarEntry from './SidebarEntry/SidebarEntry';
 
@@ -51,11 +52,7 @@ const Sidebar = (): JSX.Element => {
                             }
                             <span className='sidebar-nav-entry__span sidebar-nav-entry__span_active'>Projects</span>
                         </div>
-                        <ul className='sibedar-content'>
-                            {
-                                projectNames.map(n => <SidebarEntry key={n} title={n} link={n.toLowerCase()} icon={<FaBullhorn className='sidebar-nav-entry__icon' />} />)
-                            }
-                        </ul>
+                        <ProjectsList />
                     </li>
                 </ul>
             </div>
