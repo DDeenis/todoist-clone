@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { FaPlus, FaSun, FaMoon } from "react-icons/fa";
 import logo from '../../assets/images/logo.png';
+import { addProjectAC } from '../../redux/projectsReducer';
+import { useAppDispatch } from '../../redux/redux-hooks';
+import { v4 as uuid } from "uuid";
 import './Header.scss';
 
 const Header = (): JSX.Element => {
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const dispatch = useAppDispatch();
+
+    const addProject = () => dispatch(addProjectAC({ id: uuid(), name: 'New project', tasks: [] }))
 
     return (
         <header className='header'>
@@ -15,7 +21,7 @@ const Header = (): JSX.Element => {
                 <nav className='header-nav'>
                     <ul className='header-nav__ul'>
                         <li className='header-nav__li'>
-                            <button className='header-nav__button'>
+                            <button className='header-nav__button' onClick={() => addProject()}>
                                 <FaPlus className='header-nav__icon' />
                             </button>
                         </li>

@@ -15,7 +15,7 @@ const Sidebar = (): JSX.Element => {
     const projectNames = useAppSelector()(projectNamesSelector);
     const [listStyle, setListStyle] = useState<React.CSSProperties | undefined>({ height: '3.3rem' });
     
-    const expand = (): void => setListStyle({ height: (3.5 * projectNames.length + 1) + 'rem' });
+    const expand = (): void => setListStyle({ height: (3.6 * projectNames.length + 1) + 'rem' });
     const reset = (): void => setListStyle({ height: '3.3rem' });
 
     return (

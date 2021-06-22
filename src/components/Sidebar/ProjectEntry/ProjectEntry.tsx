@@ -7,13 +7,14 @@ import './ProjectEntry.scss'
 interface ProjectEntryProps {
     title: string,
     link: string,
+    isEdit?: boolean,
     active?: boolean,
     onClick?: React.MouseEventHandler<HTMLLIElement>
 }
 
-const ProjectEntry = ({ title, link, active = false, onClick = (e) => e.stopPropagation() }: ProjectEntryProps): JSX.Element => {
+const ProjectEntry = ({ title, link, isEdit, active = false, onClick = (e) => e.stopPropagation() }: ProjectEntryProps): JSX.Element => {
     const [projectTitle, setProjectTitle] = useState(title);
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(isEdit || false);
 
     return (
         <li className='sidebar-content__li' onClick={onClick}>
