@@ -5,10 +5,7 @@ import { ProjectsReducerAction, ProjectsReducerState, ProjectType } from "./type
 const initialState: ProjectsReducerState = {
     projects: [
         { id: '1', name: 'Test1', tasks: [] },
-        { id: '2', name: 'Test2', tasks: [] },
-        { id: '3', name: 'Test3', tasks: [] },
-        { id: '4', name: 'Test4', tasks: [] },
-        { id: '5', name: 'Test5', tasks: [] },
+        { id: '2', name: 'Test2', tasks: [] }
     ]
 };
 
@@ -20,7 +17,8 @@ export default function projectsReducer(state = initialState, action: ProjectsRe
             return projectsUtils.add(state, action.payload.value);
         
         case 'UPDATE_PROJECT':
-            return projectsUtils.update(state, action.payload.value);
+            return { ...state, projects: state.projects.map(p => p.id === action.payload.value.id ? action.payload.value : p) }
+            // return projectsUtils.update(state, action.payload.value);
         
         case 'REMOVE_PROJECT':
             return projectsUtils.remove(state, action.payload.value);

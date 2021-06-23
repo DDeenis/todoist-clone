@@ -2,19 +2,30 @@ import React from "react";
 import { useState } from "react";
 import { FaBullhorn, FaPencilAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { updateProjectAC } from "../../../redux/projectsReducer";
+import { useAppDispatch } from "../../../redux/redux-hooks";
+import { ProjectType } from "../../../redux/types";
+import { isNullOrWhiteSpace } from "../../../utils/utils";
 import './ProjectEntry.scss'
 
 interface ProjectEntryProps {
-    title: string,
-    link: string,
+    project: ProjectType,
+    link?: string,
     isEdit?: boolean,
     active?: boolean,
     onClick?: React.MouseEventHandler<HTMLLIElement>
 }
 
-const ProjectEntry = ({ title, link, isEdit, active = false, onClick = (e) => e.stopPropagation() }: ProjectEntryProps): JSX.Element => {
-    const [projectTitle, setProjectTitle] = useState(title);
+const ProjectEntry = ({ project, link, isEdit, active = false, onClick = (e) => e.stopPropagation() }: ProjectEntryProps): JSX.Element => {
+    const [projectTitle, setProjectTitle] = useState(project.name);
     const [isEditing, setIsEditing] = useState(isEdit || false);
+    const dispatch = useAppDispatch();
+    const saveProjectTitle = (): void => {
+        if (!isNullOrWhiteSpace(projectTitle)) {
+            dispatch(updateProjectAC({ ...project, name: projectTitle }));
+            setIsEditing(false);
+        }
+    }
 
     return (
         <li className='sidebar-content__li' onClick={onClick}>
@@ -29,9 +40,9 @@ const ProjectEntry = ({ title, link, isEdit, active = false, onClick = (e) => e.
                                 inputMode='text'
                                 autoFocus value={projectTitle}
                                 onChange={(e) => setProjectTitle(e.target.value)}
-                                onBlur={() => setIsEditing(false)}
+                                onBlur={() => saveProjectTitle()}
                             />
-                            : <Link to={link}>
+                            : <Link to={link || project.id}>
                                 <span className={
                                     active
                                         ? 'sidebar-nav-entry__span sidebar-nav-entry__span_active'

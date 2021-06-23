@@ -55,5 +55,6 @@
     border-top: 1px var(--color-grey-04) solid;
     border-bottom: 1px var(--color-grey-04) solid;
     overflow: hidden;
+    height: max-content;
     transition: height .3s ease;
 }

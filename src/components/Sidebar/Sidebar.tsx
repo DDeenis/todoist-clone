@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { FaInbox, FaCalendar, FaCalendarWeek, FaChevronDown, FaChevronRight } from "react-icons/fa";
-import { projectNamesSelector } from '../../redux/projectsReducer';
-import { useAppSelector } from '../../redux/redux-hooks';
 import ProjectsList from './ProjectsList/ProjectsList';
 import './Sidebar.scss';
 import SidebarEntry from './SidebarEntry/SidebarEntry';
@@ -12,11 +10,6 @@ type SidebarEntries = 'inbox' | 'today' | 'week';
 const Sidebar = (): JSX.Element => {
     const [isToggled, setIsToggled] = useState(false);
     const [active, setActive] = useState<SidebarEntries>('inbox');
-    const projectNames = useAppSelector()(projectNamesSelector);
-    const [listStyle, setListStyle] = useState<React.CSSProperties | undefined>({ height: '3.3rem' });
-    
-    const expand = (): void => setListStyle({ height: (3.6 * projectNames.length + 1) + 'rem' });
-    const reset = (): void => setListStyle({ height: '3.3rem' });
 
     return (
         <aside className='main-sidebar'>
@@ -43,8 +36,8 @@ const Sidebar = (): JSX.Element => {
                         active={active === 'week'}
                         onClick={() => setActive('week')}
                     />
-                    <li className='sidebar-content__li sidebar-projects-burger' onClick={() => setIsToggled(!isToggled)} style={listStyle}>
-                        <div className='sidebar-nav-entry' onClick={isToggled ? reset : expand}>
+                    <li className='sidebar-content__li sidebar-projects-burger' onClick={() => setIsToggled(!isToggled)}>
+                        <div className='sidebar-nav-entry'>
                             {
                                 isToggled
                                     ? <FaChevronDown className='sidebar-nav-entry__icon' />
@@ -52,7 +45,7 @@ const Sidebar = (): JSX.Element => {
                             }
                             <span className='sidebar-nav-entry__span sidebar-nav-entry__span_active'>Projects</span>
                         </div>
-                        <ProjectsList />
+                        { isToggled && <ProjectsList /> }
                     </li>
                 </ul>
             </div>

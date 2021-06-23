@@ -1,12 +1,12 @@
 import React from "react";
-import { projectNamesSelector } from "../../../redux/projectsReducer";
+import { projectsSelector } from "../../../redux/projectsReducer";
 import { useAppSelector } from "../../../redux/redux-hooks";
 import ProjectEntry from "../ProjectEntry/ProjectEntry";
 import './ProjectsList.scss';
 
 const ProjectsList = (): JSX.Element => {
-    const projectNames = useAppSelector()(projectNamesSelector);
-    const projects = projectNames.map(n => <ProjectEntry key={n} title={n} link={n.toLowerCase()} />);
+    const projectNames = useAppSelector()(projectsSelector);
+    const projects = projectNames.map(p => <ProjectEntry key={p.id} project={p} />);
 
     return (
         <ul className='sibedar-content'>
