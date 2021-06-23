@@ -5,8 +5,6 @@ import './Inbox.scss'
 
 const Inbox = (): JSX.Element => {
     const projectsSource = useAppSelector()(state => state.projects.projects);
-    console.log(projectsSource);
-    
     const projects = projectsSource.map(p => <IndividualProject key={p.id} name={p.name} tasks={p.tasks} />)
 
     return (

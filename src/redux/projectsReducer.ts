@@ -17,8 +17,8 @@ export default function projectsReducer(state = initialState, action: ProjectsRe
             return projectsUtils.add(state, action.payload.value);
         
         case 'UPDATE_PROJECT':
-            return { ...state, projects: state.projects.map(p => p.id === action.payload.value.id ? action.payload.value : p) }
-            // return projectsUtils.update(state, action.payload.value);
+            // return { ...state, projects: state.projects.map(p => p.id === action.payload.value.id ? action.payload.value : p) }
+            return projectsUtils.update(state, action.payload.value);
         
         case 'REMOVE_PROJECT':
             return projectsUtils.remove(state, action.payload.value);

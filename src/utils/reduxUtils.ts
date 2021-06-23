@@ -4,10 +4,10 @@ export const addStateValue = <TState extends BaseReducerState<TValue>, TValue ex
     ({ ...state, [field]: [...state[field], value] });
 
 export const removeStateValue = <TState extends BaseReducerState<TValue>, TValue extends BaseReduxType>(state: TState, value: TValue, field: string): TState =>
-    ({ ...state, tasks: state[field].filter(t => t.id !== value.id) });
+    ({ ...state, [field]: state[field].filter(t => t.id !== value.id) });
 
 export const updateStateValue = <TState extends BaseReducerState<TValue>, TValue extends BaseReduxType>(state: TState, value: TValue, field: string): TState =>
-    ({ ...state, tasks: state[field].map(t => t.id !== value.id ? t : value) });
+    ({ ...state, [field]: state[field].map(t => t.id === value.id ? value : t) });
     
 export class ReduxStateUtils<TState extends BaseReducerState<TValue>, TValue extends BaseReduxType> {
     constructor(public readonly field: string) { }
