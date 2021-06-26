@@ -12,9 +12,20 @@
 .sidebar-nav-entry__wrapper {
     overflow: hidden;
     text-overflow: ellipsis;
+    display: flex;
+    flex-flow: row nowrap;
     
-    & > a {
+    a {
         text-decoration: none;
+    }
+}
+
+.project-icons-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+
+    & > * {
+        margin: 0 5px;
     }
 }
 
