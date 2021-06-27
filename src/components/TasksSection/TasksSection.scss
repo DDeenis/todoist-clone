@@ -51,3 +51,9 @@
     font-size: 14px;
     user-select: none;
 }
+
+.dark {
+    .tasks-section-header__header {
+        color: var(--color-grey-01);
+    }
+}

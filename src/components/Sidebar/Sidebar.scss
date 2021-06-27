@@ -58,3 +58,21 @@
     height: max-content;
     transition: height .3s ease;
 }
+
+.dark {
+    .sidebar-nav-entry__icon {
+        color: var(--color-grey-05);
+    }
+
+    .sidebar-nav-entry__span {
+        color: var(--color-grey-01);
+    }
+
+    .sidebar-nav-entry__span_active {
+
+    }
+
+    .sidebar-projects-burger {
+
+    }
+}

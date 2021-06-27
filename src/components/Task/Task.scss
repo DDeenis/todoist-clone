@@ -40,3 +40,13 @@
 .edit-task {
 
 }
+
+.dark {
+    .task-content__title {
+        color: var(--color-grey-02);
+    }
+
+    .task-content__title_checked {
+        color: var(--color-grey-07);
+    }
+}

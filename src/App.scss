@@ -6,6 +6,14 @@ body {
     background: var(--color-grey-02);
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+
+    &.dark {
+        background: #282828;
+    }
+
+    * {
+        transition: background .2s linear, color .2s linear;
+    }
 }
 
 .app-main {
@@ -15,7 +23,6 @@ body {
 }
 
 // copypasted from todoist website
-// change to sass variables later
 :root {
     --color-black-08: rgba(0,0,0,0.88);
     --color-black-07: rgba(0,0,0,0.66);
@@ -38,45 +45,7 @@ body {
     --color-red-03: #ee5244;
     --color-red-04: #e44232;
     --color-red-06: #d1453b;
-    --color-blue-01: #f1f7fe;
-    --color-blue-02: #e2f0ff;
-    --color-blue-03: #3879fa;
-    --color-blue-04: #316fea;
-    --color-blue-06: #2064ca;
-    --color-beige-01: #fcf8f3;
-    --color-beige-02: #efebe6;
-    --color-beige-03: #eae5de;
-    --color-green-01: #f6f9f7;
-    --color-green-02: #d2e0da;
-    --color-green-03: #c7d4cf;
-    --color-green-04: #6b8767;
-    --color-gold-01: #faf6eb;
-    --color-gold-02: #efe0b9;
-    --color-gold-03: #e3cf91;
-    --color-gold-04: #f7b84f;
-    --color-yellow-03: #fffcf0;
-    --color-yellow-04: #ffd669;
-    --color-linkedin: #0077b5;
-    --color-facebook: #1877f2;
-    --color-twitter: #1da1f2;
-    --color-youtube: red;
-    --color-instagram: #e145a5;
-    --color-base-white: #fff;
     --color-base-black: #000;
-    --color-td-primary: #e44232;
-    --color-td-secondary-dark: #fae8d6;
-    --color-td-secondary-mid: #fff5eb;
-    --color-td-secondary-light: #fff9f3;
-    --color-td-cta-active: #d1453b;
-    --color-td-cta-hover: #ee5244;
-    --color-tw-primary: #316fea;
-    --color-tw-secondary-dark: #dce7e4;
-    --color-tw-secondary-mid: #f0f7f5;
-    --color-tw-secondary-light: #f6f9f8;
-    --color-tw-cta-active: #2a61cf;
-    --color-tw-cta-hover: #3879fa;
-    --color-perceptional-yellow: #ffc93e;
-    --color-perceptional-pink: #ffada4;
     --easing-smooth: cubic-bezier(0.2,0.8,0.2,1);
     --shadow-grey: rgba(0,0,0,0.08);
     --shadow-color: rgba(0,0,0,0.24);

@@ -18,7 +18,17 @@
         background-image: url('../../assets/images/check.svg');
         background-position: center;
         background-repeat: no-repeat;
-        // background-size: 80%;
         background-size: contain;
+    }
+}
+
+.dark {
+    .task__checkbox {
+        border-color: #000;
+        background-color: transparent;
+
+        &:checked {
+            background-color: var(--color-grey-02);
+        }
     }
 }

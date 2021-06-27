@@ -6,11 +6,17 @@ import { useAppDispatch } from '../../redux/redux-hooks';
 import { v4 as uuid } from "uuid";
 import './Header.scss';
 
+const toggleTheme = (): void => { document.querySelector('body')?.classList.toggle('dark') };
+
 const Header = (): JSX.Element => {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const dispatch = useAppDispatch();
 
     const addProject = () => dispatch(addProjectAC({ id: uuid(), name: 'New project', tasks: [] }))
+    const changeTheme = (): void => {
+        toggleTheme();
+        setIsDarkMode(!isDarkMode)
+    }
 
     return (
         <header className='header'>
@@ -26,7 +32,7 @@ const Header = (): JSX.Element => {
                             </button>
                         </li>
                         <li className='header-nav__li'>
-                            <button className='header-nav__button' onClick={() => setIsDarkMode(!isDarkMode)}>
+                            <button className='header-nav__button' onClick={() => changeTheme()}>
                                 {
                                     isDarkMode
                                         ? <FaSun className='header-nav__icon' />

@@ -82,3 +82,22 @@
         border-color: var(--color-red-06);
     }
 }
+
+.dark {
+    .add-task-area-wrapper {
+        color: var(--color-grey-02);
+        background-color: var(--color-grey-07);
+    }
+
+    .add-task__input {
+        background-color: var(--color-grey-05);
+    }
+
+    .add-task__outlined {
+        background: var(--color-grey-06);
+
+        &:hover {
+            background: var(--color-grey-05);
+        }
+    }
+}

@@ -41,7 +41,7 @@ const IndividualProject = ({ name, tasks = [] }: IndividualProjectProps): JSX.El
         <section className='individual-project'>
             <TasksSection title={name} dispatch={dispatch}>
                 {
-                    tasksList.length > 0 ? tasksList : <span>All done</span>
+                    tasksList.length > 0 ? tasksList : <span className='all-tasks-done'>All done</span>
                 }
             </TasksSection>
         </section>
